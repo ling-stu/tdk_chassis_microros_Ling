@@ -1,0 +1,32 @@
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:11:1:PinpointI2C::PinpointI2C(I2C_HandleTypeDef*, uint8_t, uint32_t)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:17:6:void PinpointI2C::Pinpoint_Init()	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:33:6:void PinpointI2C::Pinpoint_TaskLoop()	3
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:56:6:void PinpointI2C::setMaxConsecutiveErrors(uint8_t)	2
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:57:9:uint8_t PinpointI2C::consecutiveErrors() const	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:59:6:bool PinpointI2C::isConnected() const	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:63:6:bool PinpointI2C::ping()	2
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:70:6:bool PinpointI2C::regRead(uint8_t, void*, uint16_t)	2
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:80:6:bool PinpointI2C::regWrite(uint8_t, const void*, uint16_t)	2
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:90:6:bool PinpointI2C::writeU32(uint8_t, uint32_t)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:91:6:bool PinpointI2C::readU32(uint8_t, uint32_t&)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:92:6:bool PinpointI2C::writeF32(uint8_t, float)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:93:6:bool PinpointI2C::readF32(uint8_t, float&)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:95:6:void PinpointI2C::onOk()	2
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:96:6:void PinpointI2C::onErr()	2
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:99:6:bool PinpointI2C::readDeviceID(uint32_t&)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:100:6:bool PinpointI2C::readDeviceVersion(uint32_t&)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:101:6:bool PinpointI2C::readDeviceStatus(uint32_t&)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:102:6:bool PinpointI2C::readLoopTime(uint32_t&)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:104:6:bool PinpointI2C::readRawEncoders(uint32_t&, uint32_t&)	3
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:111:6:bool PinpointI2C::readBulk(BulkData&)	2
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:131:6:bool PinpointI2C::readPosition(Pose&)	4
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:137:6:bool PinpointI2C::readVelocity(Velocity&)	4
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:144:6:bool PinpointI2C::setTicksPerMM(float)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:148:6:bool PinpointI2C::setOffsets(float, float)	3
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:154:6:bool PinpointI2C::setYawScalar(float)	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:159:6:bool PinpointI2C::resetIMU()	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:164:6:bool PinpointI2C::resetPosAndIMU()	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:169:6:bool PinpointI2C::setEncoderDirections(EncDir, EncDir)	3
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:177:6:bool PinpointI2C::writePosition(const Pose&)	4
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:182:1:void __static_initialization_and_destruction_0()	1
+../Core/Inc/Control_Lib/Pinpoint/Src/Pinpoint.cpp:182:1:cpp)	1
