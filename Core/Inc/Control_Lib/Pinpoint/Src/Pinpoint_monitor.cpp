@@ -19,7 +19,6 @@ void pinpoint_monitor(){
 }
 
 void update_pinpoint_pose(){
-	// 方法 1: 使用 readPosition 讀取到 Pose struct
 	PinpointI2C::Pose current_pose;
 	if (pinpoint.readPosition(current_pose)) {
 		pos_x = current_pose.x_mm;

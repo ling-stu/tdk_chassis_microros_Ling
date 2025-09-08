@@ -17,11 +17,11 @@ float x_error,y_error;
 
 
 void chassis_monitor(void) {
-	if(bd.pos_y_mm< y_goal){
-		chassis.setSpeed(Vx_goal, 0.5, W_goal);
-	}else{
-		chassis.setSpeed(0,0,0);
-	}
+//	if(bd.pos_y_mm< y_goal){
+    chassis.setSpeed(Vx_goal,Vy_goal, W_goal);
+//	}else{
+//		chassis.setSpeed(0,0,0);
+//	}
 	chassis.getLocation();
 }
 
