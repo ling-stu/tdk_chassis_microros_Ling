@@ -9,6 +9,7 @@
 #include "uros_init.h"
 #include <math.h>
 #include <string.h>
+#include <rmw_microros/time_sync.h>
 
 double vx = 0.0 ,vy = 0.0 ,vz = 0.0;
 
@@ -286,10 +287,13 @@ void update_pose(double pos_x, double pos_y, double pos_z, double vel_x, double 
 
 void pose_pub_timer_cb(rcl_timer_t * timer, int64_t last_call_time) {
   // 更新时间戳
-  uint32_t current_tick = HAL_GetTick();
-  pose_msg.header.stamp.sec = current_tick / 1000;
-  pose_msg.header.stamp.nanosec = (current_tick % 1000) * 1000000;
+//  uint32_t current_tick = HAL_GetTick();
+//  pose_msg.header.stamp.sec = current_tick / 1000;
+//  pose_msg.header.stamp.nanosec = (current_tick % 1000) * 1000000;
   
+  int64_t time_ns = rmw_uros_epoch_nanos();
+  pose_msg.header.stamp.sec = time_ns / 1000000000LL;
+  pose_msg.header.stamp.nanosec = time_ns % 1000000000LL;
 //  rcl_ret_t ret = rcl_publish(&pose_pub, &pose_msg, NULL);
   rcl_publish(&pose_pub, &pose_msg, NULL);
   

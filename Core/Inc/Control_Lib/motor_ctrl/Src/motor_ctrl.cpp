@@ -16,11 +16,11 @@ void MotorController::setSpeed(float speed) {
 
 //    if (_pidOutput > 80.0) _pidOutput = 80.0;
 //    if (_pidOutput < -80.0) _pidOutput = -80.0;
-//    if (_dir_ctrl == 1){
-    HAL_GPIO_WritePin(_dirGPIO, _dirPin, _pidOutput >= 0 ? GPIO_PIN_SET : GPIO_PIN_RESET);
-//    }else{
-//    	HAL_GPIO_WritePin(_dirGPIO, _dirPin, _pidOutput >= 0 ? GPIO_PIN_RESET : GPIO_PIN_SET);
-//    }
+    if (_dir_ctrl == 1){
+    	HAL_GPIO_WritePin(_dirGPIO, _dirPin, _pidOutput >= 0 ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    }else{
+    	HAL_GPIO_WritePin(_dirGPIO, _dirPin, _pidOutput >= 0 ? GPIO_PIN_RESET : GPIO_PIN_SET);
+    }
     _pwmValue = (uint16_t)(fabs(_pidOutput) * PWM_ARR );///  10.0);
     if (_pwmValue < 10) _pwmValue = 0;
     __HAL_TIM_SET_COMPARE(_pwm, _channel, _pwmValue);
@@ -92,7 +92,7 @@ float MotorController::updateSpeed() {
 	cnt = __HAL_TIM_GetCounter(_enc);
 	_currentSpeed = (cnt/ENCODER_RESOLUTION / REDUCTION_RATIO / 4) / (DT / 1000.0);
     __HAL_TIM_SET_COUNTER(_enc, 0);
-//    _currentSpeed *= _en_ctrl;
+    _currentSpeed *= _en_ctrl;
     return _currentSpeed;
 }
 //double MotorController::updateSpeed() {

@@ -6,6 +6,7 @@ bool i2c_reconnect = 0;
 bool i2c_connected = 1;
 PinpointI2C pinpoint(&hi2c1);
 PinpointI2C::BulkData bd;
+bool initi_yet = 0;
 
 // ---- 建構 ----
 PinpointI2C::PinpointI2C(I2C_HandleTypeDef* hi2c, uint8_t addr7bit, uint32_t timeoutMs)
@@ -16,19 +17,21 @@ PinpointI2C::PinpointI2C(I2C_HandleTypeDef* hi2c, uint8_t addr7bit, uint32_t tim
 
 void PinpointI2C::Pinpoint_Init()
 {
+	initi_yet = 1;
     // 1) 連線檢測
     if (!ping()) {
         // TODO: 報警或重試
     }
     // 2) 一次性配置（每次上電後都要重新送配置；手冊明確說明）
     setTicksPerMM(19.894f);       // 依你的 pod 實際數值
-    setOffsets(-84.0f, -168.0f);  // 依你的機構量測
+    setOffsets(75.0f, -65.0f);  // 依你的機構量測
     // pinpoint.setYawScalar(1.0f);        // 通常不建議改動
     // 3) 方向確認（前+X、左+Y）
     setEncoderDirections(PinpointI2C::EncDir::Forward,
                                   PinpointI2C::EncDir::Forward);
     // 4) 開賽或程式啟動時：確保靜止後歸零+IMU校正（~0.25s）
     resetPosAndIMU();
+
 }
 void PinpointI2C::Pinpoint_TaskLoop()
 {

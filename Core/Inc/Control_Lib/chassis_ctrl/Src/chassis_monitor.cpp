@@ -28,4 +28,5 @@ void chassis_monitor(void) {
 void chassis_set_speed(double vx,double vy,double vz)
 {
 	chassis.setSpeed(vx, vy, vz);
+	chassis.getLocation();
 }

@@ -61,11 +61,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
 		sec++;
 		tct++;
-		chassis_monitor();
-//		chassis_set_speed(vx, vy, vz);
-//		update_pinpoint_pose();
-//		update_pose(pos_x, pos_y, pos_z, vel_x, vel_y, vel_z);
-//		pinpoint_monitor();
+//		chassis_monitor();
+		chassis_set_speed(vx, vy, vz);
+		update_pinpoint_pose();
+		update_pose(pos_x, pos_y, pos_z, vel_x, vel_y, vel_z);
+		pinpoint_monitor();
 	}
   /* USER CODE END Callback 0 */
 	if (htim->Instance == TIM6)

@@ -42,6 +42,7 @@ extern std_msgs__msg__Int32      cmd_arm_msg;
 extern rcl_timer_t pose_pub_timer;
 
 extern double vx ,vy,vz;
+extern int code;
 
 
 bool cubemx_transport_open(struct uxrCustomTransport * transport);
@@ -78,6 +79,7 @@ void uros_destroy_entities(void);
 void cmd_vel_sub_cb(const void* msgin);
 void cmd_arm_sub_cb(const void* msgin);
 void pose_pub_timer_cb(rcl_timer_t * timer, int64_t last_call_time);
+void arm_pub_cb();
 
 void update_pose(double pos_x, double pos_y, double pos_z, double vel_x, double vel_y, double vel_z);
 
