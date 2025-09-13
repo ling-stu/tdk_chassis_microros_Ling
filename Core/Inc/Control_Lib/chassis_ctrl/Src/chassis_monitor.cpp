@@ -14,7 +14,6 @@ float W_goal = 0.0;
 float w_goal,x_goal,y_goal;
 extern PinpointI2C::BulkData bd;
 float x_error,y_error;
-float vel_x, vel_y, vel_z;
 
 
 void chassis_monitor(void) {
@@ -26,15 +25,7 @@ void chassis_monitor(void) {
 	chassis.getLocation();
 }
 
-void chassis_set_speed(float vx,float vy,float vz)//阿包版的chassis monitor
+void chassis_set_speed(double vx,double vy,double vz)
 {
 	chassis.setSpeed(vx, vy, vz);
-	chassis.getLocation();
-}
-
-void chassis_give_speed()
-{
-	vel_x = chassis._Vx_now;
-	vel_y = chassis._Vy_now;
-	vel_z = chassis._W_now;
 }

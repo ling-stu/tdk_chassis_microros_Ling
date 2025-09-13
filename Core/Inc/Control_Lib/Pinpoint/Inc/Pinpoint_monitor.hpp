@@ -9,12 +9,13 @@ extern "C" {
 /* Includes */
 
 // 宣告全域變數 (extern 表示在其他檔案中定義)
-extern float pos_x, pos_y, pos_z, vel_x, vel_y, vel_z;
+extern double pos_x, pos_y, pos_z, vel_x, vel_y, vel_z;
 
 // 函數宣告
 void pinpoint_init(void);
 void pinpoint_monitor(void);
 void update_pinpoint_pose(void);
+void relocateRobot(float x, float y, float angle);
 
 #ifdef __cplusplus
 }

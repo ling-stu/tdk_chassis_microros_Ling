@@ -22,7 +22,7 @@ void MotorController::setSpeed(float speed) {
     	HAL_GPIO_WritePin(_dirGPIO, _dirPin, _pidOutput >= 0 ? GPIO_PIN_RESET : GPIO_PIN_SET);
     }
     _pwmValue = (uint16_t)(fabs(_pidOutput) * PWM_ARR );///  10.0);
-    if (_pwmValue < 10) _pwmValue = 0;
+    if (_pwmValue < 20) _pwmValue = 0;
     __HAL_TIM_SET_COMPARE(_pwm, _channel, _pwmValue);
 //    _targetSpeed = speed;
 //    ComputePID();
@@ -51,7 +51,7 @@ float MotorController::ComputePID() {
 
     float derivative = (_error - _lastError) / (DT / 1000.0);
 
-    _pidOutput = (_kp * _error) + (_ki * _integral) + (_kd * derivative);
+    _pidOutput = (_kp * _error) + (_ki * _integral); //+ (_kd * derivative);
 
     // Update last error
     _lastError = _error;

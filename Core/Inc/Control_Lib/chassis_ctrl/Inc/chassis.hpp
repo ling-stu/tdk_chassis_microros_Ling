@@ -30,11 +30,11 @@ class Chassis {
         MotorController* _motorFL;
         MotorController* _motorBR;
         MotorController* _motorBL;
-        float _Vx_now = 0, _Vy_now = 0, _W_now = 0;
     private:
         
         float _V_FR_goal = 0, _V_FL_goal = 0, _V_BR_goal = 0, _V_BL_goal = 0;
         float _Vx_goal = 0, _Vy_goal = 0, _W_goal = 0;
+        float _Vx_now = 0, _Vy_now = 0, _W_now = 0;
         float _chassis_factor = (CHASSIS_LENGTH + CHASSIS_WIDTH) / (PI * WHEEL_DIA);
         float _V_FR_now = 0, _V_FL_now = 0, _V_BR_now = 0, _V_BL_now = 0;
 };
