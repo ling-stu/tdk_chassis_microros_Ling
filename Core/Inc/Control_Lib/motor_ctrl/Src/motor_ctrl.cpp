@@ -51,7 +51,7 @@ float MotorController::ComputePID() {
 
     float derivative = (_error - _lastError) / (DT / 1000.0);
 
-    _pidOutput = (_kp * _error) + (_ki * _integral); //+ (_kd * derivative);
+    _pidOutput = (_kp * _error) + (_ki * _integral) + (_kd * derivative);
 
     // Update last error
     _lastError = _error;

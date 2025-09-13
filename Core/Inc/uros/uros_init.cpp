@@ -11,7 +11,7 @@
 #include <string.h>
 #include <rmw_microros/time_sync.h>
 
-double vx = 0.0 ,vy = 0.0 ,vz = 0.0;
+float vx = 0.0 ,vy = 0.0 ,vz = 0.0;
 
 rcl_publisher_t           pose_pub;
 nav_msgs__msg__Odometry   pose_msg;
@@ -96,7 +96,7 @@ void handle_state_agent_available(void) {
 }
 void handle_state_agent_connected(void) {
   if(rmw_uros_ping_agent(20, 5) == RMW_RET_OK){
-    rclc_executor_spin_some(&executor, RCL_MS_TO_NS(50));
+    rclc_executor_spin_some(&executor, RCL_MS_TO_NS(10));
     ping_fail_count = 0; // Reset ping fail count
   } else {
     ping_fail_count++;
@@ -275,7 +275,7 @@ void cmd_vel_sub_cb(const void* msgin) {
 //  last_cmd_vel_time = current_time;
 }
 
-void update_pose(double pos_x, double pos_y, double pos_z, double vel_x, double vel_y, double vel_z){
+void update_pose(float pos_x, float pos_y, float pos_z, float vel_x, float vel_y, float vel_z){
   pose_msg.pose.pose.position.x = pos_x;
   pose_msg.pose.pose.position.y = pos_y;
   pose_msg.pose.pose.orientation.z = pos_z;
@@ -291,9 +291,9 @@ void pose_pub_timer_cb(rcl_timer_t * timer, int64_t last_call_time) {
 //  pose_msg.header.stamp.sec = current_tick / 1000;
 //  pose_msg.header.stamp.nanosec = (current_tick % 1000) * 1000000;
   
-  int64_t time_ns = rmw_uros_epoch_nanos();
-  pose_msg.header.stamp.sec = time_ns / 1000000000LL;
-  pose_msg.header.stamp.nanosec = time_ns % 1000000000LL;
+//  int64_t time_ns = rmw_uros_epoch_nanos();
+//  pose_msg.header.stamp.sec = time_ns / 1000000000LL;
+//  pose_msg.header.stamp.nanosec = time_ns % 1000000000LL;
 //  rcl_ret_t ret = rcl_publish(&pose_pub, &pose_msg, NULL);
   rcl_publish(&pose_pub, &pose_msg, NULL);
   

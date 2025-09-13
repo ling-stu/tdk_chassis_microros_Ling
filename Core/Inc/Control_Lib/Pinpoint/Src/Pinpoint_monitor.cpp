@@ -2,14 +2,13 @@
 #include <Control_Lib/Pinpoint/Inc/Pinpoint_monitor.hpp>
 #include "main.h"
 #include "cmsis_os.h"
-#define update_period 50
+#define update_period 5
 
 extern PinpointI2C pinpoint;
 extern PinpointI2C::BulkData bd;
 extern I2C_HandleTypeDef hi2c1;
 extern int sec;
-
-double pos_x, pos_y, pos_z, vel_x, vel_y, vel_z;
+float pos_x, pos_y, pos_z;
 bool check = 0;
 
  void pinpoint_init(){
@@ -55,8 +54,8 @@ void update_pinpoint_pose(){
 	pos_x = bd.pos_x_mm;
 	pos_y = bd.pos_y_mm;
 	pos_z = bd.heading_rad;
-	vel_x = bd.vel_x_mm_s;
-	vel_y = bd.vel_y_mm_s;
-	vel_z = bd.vel_h_rad_s;
+//	vel_x = bd.vel_x_mm_s;
+//	vel_y = bd.vel_y_mm_s;
+//	vel_z = bd.vel_h_rad_s;
 }
 

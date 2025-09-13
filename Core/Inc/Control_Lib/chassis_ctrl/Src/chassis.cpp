@@ -2,7 +2,8 @@
 #include "motor_config.h"
 float Vx_global,Vy_global,dt;
 void Chassis::setSpeed(float Vx_goal, float Vy_goal, float W_goal){
-    _Vx_goal = Vx_goal; _Vy_goal = Vy_goal; _W_goal = W_goal;
+	float circle = WHEEL_DIA * PI;
+    _Vx_goal = Vx_goal/circle; _Vy_goal = Vy_goal/circle; _W_goal = W_goal/circle;
     Mecan_InverseKinematics();
     _motorFR->setSpeed(_V_FR_goal);
     _motorFL->setSpeed(_V_FL_goal);

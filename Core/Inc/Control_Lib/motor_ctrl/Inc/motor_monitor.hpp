@@ -11,7 +11,7 @@ void motor_monitor(void);
 
 #ifdef __cplusplus
 }
-void chassis_set_speed(double vx,double vy,double vz);
+void chassis_set_speed(float vx,float vy,float vz);
 #endif
 
 #endif /* MOTOR_MONITOR_H */

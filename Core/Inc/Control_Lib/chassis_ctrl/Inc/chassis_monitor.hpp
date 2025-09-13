@@ -8,7 +8,9 @@ extern "C" {
 
 /* Includes */
 void chassis_monitor(void);
-void chassis_set_speed(double vx,double vy,double vz);
+void chassis_set_speed(float vx,float vy,float vz);
+void chassis_give_speed();
+extern float vel_x, vel_y, vel_z;
 
 #ifdef __cplusplus
 }
